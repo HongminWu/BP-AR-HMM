@@ -1,0 +1,95 @@
+Iteration     : 1
+CompLabel     : PL
+averageVal1   : -0.05844
+averageVal2   : -0.05844
+AVG_MAG_VAL   : -0.05844
+rmsVal1       : -0.02339
+rmsVal2       : -0.02339
+AVG_RMS_Val   : -0.02339
+amplitudeVal1 : 0.09680
+amplitudeVal2 : 0.09680
+AVG_AMP_VAL   : 0.09680
+Label 1       : spos
+Label 2       : none
+t1Start       : 0.00000
+t1End         : 0.00000
+t2Start       : 0.15000
+t2End         : 0.15000
+tAvgIndex     : 0.07500
+
+Iteration     : 2
+CompLabel     : FX
+averageVal1   : 0.44795
+averageVal2   : 0.68683
+AVG_MAG_VAL   : 0.47771
+rmsVal1       : 0.92695
+rmsVal2       : 0.92695
+AVG_RMS_Val   : 1.75808
+amplitudeVal1 : 0.56614
+amplitudeVal2 : 1.31572
+AVG_AMP_VAL   : 1.65024
+Label 1       : bpos
+Label 2       : bpos
+t1Start       : 0.15000
+t1End         : 7.52500
+t2Start       : 7.52500
+t2End         : 9.37500
+tAvgIndex     : 4.76250
+
+Iteration     : 3
+CompLabel     : PL
+averageVal1   : 1.25544
+averageVal2   : 1.25544
+AVG_MAG_VAL   : 1.25544
+rmsVal1       : 1.29789
+rmsVal2       : 1.29789
+AVG_RMS_Val   : 1.29789
+amplitudeVal1 : 0.33482
+amplitudeVal2 : 0.33482
+AVG_AMP_VAL   : 0.33482
+Label 1       : spos
+Label 2       : none
+t1Start       : 9.37500
+t1End         : 9.37500
+t2Start       : 9.40000
+t2End         : 9.40000
+tAvgIndex     : 9.38750
+
+Iteration     : 4
+CompLabel     : SH
+averageVal1   : 1.46278
+averageVal2   : 2.00758
+AVG_MAG_VAL   : 1.73518
+rmsVal1       : 2.36395
+rmsVal2       : 2.28191
+AVG_RMS_Val   : 2.36395
+amplitudeVal1 : 0.97834
+amplitudeVal2 : 1.13382
+AVG_AMP_VAL   : 1.13382
+Label 1       : bpos
+Label 2       : bpos
+t1Start       : 9.40000
+t1End         : 9.75000
+t2Start       : 9.75000
+t2End         : 9.87500
+tAvgIndex     : 9.69375
+
+Iteration     : 5
+CompLabel     : AL
+averageVal1   : 1.45762
+averageVal2   : 0.96644
+AVG_MAG_VAL   : 1.21369
+rmsVal1       : 2.02736
+rmsVal2       : 1.90094
+AVG_RMS_Val   : 2.02736
+amplitudeVal1 : 1.05103
+amplitudeVal2 : 0.43746
+AVG_AMP_VAL   : 1.15755
+Label 1       : mneg
+Label 2       : mneg
+t1Start       : 9.87500
+t1End         : 10.32500
+t2Start       : 10.32500
+t2End         : 10.86000
+tAvgIndex     : 10.36750
+

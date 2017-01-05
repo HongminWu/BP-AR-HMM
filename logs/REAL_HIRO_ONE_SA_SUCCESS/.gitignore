@@ -1,0 +1,49 @@
+# RCBHT
+Composites/
+Segments/
+hlBehaviors/
+llBehaviors/
+
+# Other
+Videos/
+Prelim/
+hiroPysicalExperimentpRCBHT_Results.xlsx
+
+# Figures
+*.png
+*.jpeg
+*.tiff
+*.eps
+*.db
+
+# Initialization files
+*.ini
+
+# Microsoft files or Libre or OpenOffice
+*.xls
+*.xlsx
+*.ods
+
+# Shell or Batch Files
+*.bat
+*.sh
+*.rb
+
+# Vides
+*.MTS
+*.mp4
+*.avi
+*.mpg
+*.mpeg
+*.mov
+
+# Adobe
+*.pdf
+*.ai
+
+# Matlab
+*.fig
+*.mat
+
+# Backup
+*.*~

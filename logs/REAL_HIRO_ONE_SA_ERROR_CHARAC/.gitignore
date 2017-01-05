@@ -1,0 +1,33 @@
+# Figures
+*.png
+*.jpeg
+*.tiff
+*.eps
+
+# Initialization files
+*.ini
+
+# Microsoft files or Libre or OpenOffice
+*.xls
+*.xlsx
+*.ods
+
+# Shell or Batch Files
+*.bat
+*.sh
+*.rb
+
+# Vides
+*.MTS
+*.mp4
+*.avi
+*.mpg
+*.mpeg
+
+# Adobe
+*.pdf
+*.ai
+
+# Matlab
+*.fig
+*.mat
