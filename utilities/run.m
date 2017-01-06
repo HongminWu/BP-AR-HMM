@@ -174,7 +174,7 @@ tic;
         % Call to main function:
         % staeSeq: state sequence for each demonstration
         %Ustats:
-        %   Ustats.card:
+        %   Ustats.card:d
         %   Ustats.XX:
         %   Ustats.YX:
         %   Ustats.YY:

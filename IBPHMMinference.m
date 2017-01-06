@@ -30,7 +30,7 @@ display(strcat('Trial:',num2str(trial)))
 
 if settings.ploton
     H1 = figure;
-%     H2 = figure;
+%   H2 = figure;
    % A2 = gca();
 end
 

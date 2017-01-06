@@ -8,7 +8,7 @@ function [DataCell, folders_name] = extract_file(ParentDir, dataType, nTrail)
     cd(ParentDir);
     
     %SIM_HIRO_ONE_SA_ERROR_CHARAC_Prob
-    specificFailure = '+x-r';   
+    specificFailure = '+x';   
     %folder = {'FC008+x0.0090','FC011+x0.0105','FC150+x0.0105'};
     if strcmp(ParentDir,'SIM_HIRO_ONE_SA_ERROR_CHARAC_Prob')
         cd (specificFailure);
@@ -35,7 +35,7 @@ function [DataCell, folders_name] = extract_file(ParentDir, dataType, nTrail)
  
  id = (1:length(folders)); %extract all the demonstrations
  %id = [1, 3, 5, 6, 7, 10] + 2; %+r extract special demonstrations
- %id = [5, 6, 8, 9, 10, 11] + 2; %+x extract special demonstrations
+ id = [5, 6, 8, 9, 10, 11] + 2; %+x extract special demonstrations
  %id = [1, 2, 3, 4, 6, 10, 12] + 2; %+x+r extract special demonstrations 
  %id = [4, 5, 6, 7, 8, 9, 10, 12] + 2; %+x+y extract special demonstrations 
  %id = [                        ] + 2; %+x+y+r extract special demonstrations
