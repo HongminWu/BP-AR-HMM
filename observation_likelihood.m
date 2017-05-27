@@ -13,7 +13,9 @@ Kz_inds = find(F>0);
 [likelihood log_normalizer] = compute_likelihood(data_struct,theta,obsModelType,Kz_inds,Kz,Ks);
 
 likelihood_Kz_inds = likelihood(Kz_inds,:,:);
-[pi_z pi_init pi_s] = transformDistStruct(dist_struct,Kz_inds);
+%[pi_z pi_init pi_s] = transformDistStruct(dist_struct,Kz_inds);
+
+[pi_z pi_init pi_s] = transformDistStruct_HongminWu(dist_struct, Kz_inds); %@Hongmin Wu
 
 % Pass messages forward to integrate over the mode/state sequence:
 [fwd_msg neglog_c] = forward_message_vec(likelihood_Kz_inds,log_normalizer,blockEnd,pi_z,pi_s,pi_init);

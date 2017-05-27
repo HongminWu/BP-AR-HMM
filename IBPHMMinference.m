@@ -14,9 +14,8 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
-function [stateSeq Ustats F theta loglike] = IBPHMMinference(data_struct,model,settings)
-
-trial = settings.trial;
+function [data_struct stateSeq Ustats F dist_struct theta loglike] = IBPHMMinference(data_struct,model,settings,trial)
+settings.trial = trial;
 if ~isfield(settings,'saveMin')
     settings.saveMin = 1;
 end
@@ -30,8 +29,8 @@ display(strcat('Trial:',num2str(trial)))
 
 if settings.ploton
     H1 = figure;
-%   H2 = figure;
-   % A2 = gca();
+%     H2 = figure;
+%     A2 = gca();
 end
 
 obsModel = model.obsModel;  % structure containing the observation model parameters
@@ -55,10 +54,10 @@ else
     F = ones(numObj,20); % the maximum number skills is 20
 end
 
-%if settings.ploton
-%    imagesc(F,'Parent',A2); title(A2,['Featuer Matrix, Iter: 1']);
+% if settings.ploton
+%    imagesc(F,'Parent',A2); title(A2,'Featuer Matrix, Iter: 1');
 %    drawnow;
-%end
+% end
 
 % Build initial structures for parameters and sufficient statistics:
 [theta Ustats stateCounts data_struct model S] = initializeStructs(F,model,data_struct,settings);
@@ -88,6 +87,8 @@ end
 if ~exist(settings.saveDir,'file')
     mkdir(settings.saveDir);
 end
+cd (settings.saveDir);
+delete *;
 
 % Save initial statistics and settings for this trial:
 if isfield(settings,'filename')
@@ -124,10 +125,12 @@ num_accept = zeros(Niter,2);
 num_prop = zeros(Niter,2);
 
 for n=1:Niter
-    DISP = [num2str(trial), '-Gibbs Sampling:', num2str(n), '/', num2str(Niter)];
-    disp(DISP);
     
     [F dist_struct theta config_log_likelihood num_accept(n,:) num_prop(n,:)] = sample_features(F,hyperparams.gamma0,data_struct,dist_struct,theta,obsModel);
+    
+   if rem(n, 20)==0
+       disp(strcat(num2str(trial),'/',num2str(settings.nTrial),'-',char(settings.STATE),'-Gibbs_Sampling:', num2str(n), '/', num2str(Niter),'-log:',num2str(config_log_likelihood)));
+   end
     
     % Sample z and s sequences given data, transition distributions,
     % HMM-state-specific mixture weights, and emission parameters:
@@ -153,9 +156,6 @@ for n=1:Niter
     % Build and save stats structure:
     S = store_stats(S,n,settings,F,config_log_likelihood,stateSeq,dist_struct,theta,hyperparams);
    
-%    figure(H2);
-%     scatter(n,config_log_likelihood,'filled');hold on;
-    
     % Plot stats:
     if isfield(data_struct,'true_labels') & settings.ploton
                 
@@ -176,7 +176,6 @@ for n=1:Niter
             
             F_used(1,unique(stateSeq(1).z)) = 1;
                     
-            %A1 = subplot(sub_x,sub_y,1,'Parent',H1);
             A1 = subplot(sub_x*sub_y,1,1,'Parent',H1); 
              
             %imagesc([relabeled_z(1:cummlength(1)); relabeled_true_labels(1:cummlength(1))],'Parent',A1,[1 max(union(relabeled_z,relabeled_true_labels))]); title(A1,['Iter: ' num2str(n)]);
@@ -190,15 +189,12 @@ for n=1:Niter
                 imagesc([relabeled_z(cummlength(ii-1)+1:cummlength(ii))],'Parent',A1,[1 max(union(relabeled_z,relabeled_true_labels))]) ;title(A1,['Iter: ' num2str(n)]); 
 
             end
+%             imagesc(F+F_used,'Parent',A2); title(A2,['Featuer Matrix, Iter: ' num2str(n)]);
             drawnow;
-            
-            %imagesc(F+F_used,'Parent',A2); title(A2,['Featuer Matrix, Iter: ' num2str(n)]);
-            %drawnow;
-            
+           
             if isfield(settings,'plotpause') && settings.plotpause
                 if isnan(settings.plotpause), waitforbuttonpress; else pause(settings.plotpause); end
             end
-   
         end
     end
 end

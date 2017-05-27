@@ -42,9 +42,8 @@ switch obsModelType
             
             mu = theta.mu;
             
-            for kz=Kz_inds
-                for ks=1:Ks
-                    
+            for kz = Kz_inds
+                for ks=1:Ks                
                     cholinvSigma = chol(invSigma(:,:,kz,ks));
                     dcholinvSigma = diag(cholinvSigma);
                     
@@ -54,21 +53,19 @@ switch obsModelType
                     
                 end
             end
-        else
-            
-            for kz=Kz_inds
+        else     
+             for kz = Kz_inds
+               % kz = Kz_inds(ikz); %@Hongmin Wu
                 for ks=1:Ks
-                    
                     cholinvSigma = chol(invSigma(:,:,kz,ks));
                     dcholinvSigma = diag(cholinvSigma);
-                    
+
                     u = cholinvSigma*(data_struct.obs - A(:,:,kz,ks)*X);
-                    
+
                     log_likelihood(kz,ks,:) = -0.5*sum(u.^2,1) + sum(log(dcholinvSigma));
-                    
+
                 end
-            end
-            
+             end
         end
         
        
