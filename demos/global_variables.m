@@ -5,7 +5,7 @@ global TRAIN_TIMES  INERATIVE_TIMES  WRENCH_DERIVATIVE  AUTOREGRESSIVE_ORDER    
 global CONFUSION_MATRIX TIME_PERCENT
 
 AUTOREGRESSIVE_ORDER = 1;
-TRAIN_TIMES          = 2;
+TRAIN_TIMES          = 1;
 INERATIVE_TIMES      = 500;
 TIME_STEP            = 0.005;
 COLORS               = {'r', 'g', 'b', 'k', 'c','y'};
@@ -22,7 +22,7 @@ for nSignal          = 1 : length(SIGNAL_TYPE)
 end
 DATASET              = 'REAL_HIRO_ONE_SA_SUCCESS';
 DATA_PATH            = '/media/vmrguser/DATA/Homlx/HIRO_SA_DATA';
-ROOT_PATH            = '/media/vmrguser/DATA/Homlx/BPARHMMtoolbox';
+ROOT_PATH            = '/media/vmrguser/DATA/Homlx/BPARHMM';
 TRAINED_MODEL_PATH   = strcat(ROOT_PATH, '/','TrainedModels/',METHOD,'_',ROBOT,'_',TASK,'_',MULTIMODAL,'_');
 TESTING_RESULTS_PATH = strcat(ROOT_PATH, '/','Results','/',METHOD,'_',ROBOT,'_',TASK,'_',MULTIMODAL);
 STATE                = {'APPROACH', 'ROTATION', 'INSERTION', 'MATING'};
